@@ -4,11 +4,11 @@
 %table#movies.table.table-striped.col-md-12
   %thead
     %tr
-      - if sort_col == "title"
-        %th title_header = link_to "Movie Title", movies_path(sort_col: "title")
+      - if @sort == "title"
+        %th title_header = link_to "Movie Title", movies_path(:sort => "title")
       %th Rating
-      - if sort_col == "release_date"
-        %th release_date_header = link_to "Release Date", movies_path(sort_col: "release_date")
+      - if @sort == "release_date"
+        %th release_date_header = link_to "Release Date", movies_path(:sort => "release_date")
       %th More Info
   %tbody
     - @movies.each do |movie|
