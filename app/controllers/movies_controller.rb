@@ -15,9 +15,9 @@ class MoviesController < ApplicationController
     
     if params[:sort_col].nil?
       @movies = Movie.all
-    elseif @sort == "title"
+    elsif @sort == "title"
       @movies = Movie.order("title")
-    elseif @sort == "release_date"
+    elsif @sort == "release_date"
       @movies = Movie.order("release_date")
     end  
   end
