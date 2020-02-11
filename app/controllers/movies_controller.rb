@@ -16,15 +16,15 @@ class MoviesController < ApplicationController
     sort = params[:sort]
     ratings = params[:ratings]
     
-    if(ratings != nil)
-      @movies = Movie.where(rating: ratings.keys)
-    end
+    # if(ratings != nil)
+    #   @movies = Movie.where(rating: ratings.keys)
+    # end
 
     if sort == "title"
-      @movies = Movie.where(rating: ratings.keys).order(sort)
+      ratings ? @movies = Movie.where(rating: ratings.keys).order(sort) : @movies = Movie.order(sort)
       @title_class = "hilite"
     elsif sort == "release_date"
-      @movies = Movie.where(rating: ratings.keys).order(sort)
+      ratings ? @movies = Movie.where(rating: ratings.keys).order(sort) : @movies = Movie.order(sort)
       @date_class = "hilite"
     else 
       ratings ? @movies = Movie.where(rating: ratings.keys) : @movies = Movie.all
