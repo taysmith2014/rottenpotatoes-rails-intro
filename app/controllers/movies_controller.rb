@@ -30,7 +30,7 @@ class MoviesController < ApplicationController
       @ratings ? @movies = Movie.where(rating: @ratings.keys).order(@sort) : @movies = Movie.order(@sort)
       @date_class = "hilite"
     else 
-      @ratings ? @movies = Movie.where(rating: @ratings.keys) : @movies = Movie.all
+      @ratings ? @movies = Movie.where(rating: @ratings) : @movies = Movie.all
     end  
   end
 
