@@ -23,10 +23,10 @@ class MoviesController < ApplicationController
       return redirect_to sort: @sort, ratings: @ratings
     end
     
-    if sort == "title"
+    if @sort == "title"
       @ratings ? @movies = Movie.where(rating: @ratings.keys).order(@sort) : @movies = Movie.order(@sort)
       @title_class = "hilite"
-    elsif sort == "release_date"
+    elsif @sort == "release_date"
       @ratings ? @movies = Movie.where(rating: @ratings.keys).order(@sort) : @movies = Movie.order(@sort)
       @date_class = "hilite"
     else 
