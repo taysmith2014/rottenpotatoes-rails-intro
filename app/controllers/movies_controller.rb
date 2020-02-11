@@ -22,8 +22,10 @@ class MoviesController < ApplicationController
 
     if sort == "title"
       @movies = Movie.where(rating: ratings.keys).order(sort)
+      @title_class = "hilite"
     elsif sort == "release_date"
       @movies = Movie.where(rating: ratings.keys).order(sort)
+      @date_class = "hilite"
     else 
       ratings ? @movies = Movie.where(rating: ratings.keys) : @movies = Movie.all
     end  
